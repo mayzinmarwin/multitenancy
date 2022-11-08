@@ -18,8 +18,7 @@
             <div class="row justify-content-center">
                 <div class="col-md-8">
                     <div class="card">
-                        <div class="card-header bg-success bg-gradient text-white text-center fs-4">Tenant Register Form</div>
-        
+                        <div class="card-header bg-secondary bg-gradient text-white text-center fs-4">Tenant Login Form</div>
                         <div class="card-body">
                             <form method="post">
                                 @csrf
@@ -33,14 +32,6 @@
                                 </div>
         
                                 <div class="row mb-3 d-flex justify-content-center">
-                                    <label for="email" class="col-md-3 col-form-label">Email Address</label>
-        
-                                    <div class="col-md-6">
-                                        <input id="email" type="email" class="form-control" name="email"  required autocomplete="email">
-                                    </div>
-                                </div>
-        
-                                <div class="row mb-3 d-flex justify-content-center">
                                     <label for="password" class="col-md-3 col-form-label">Password</label>
         
                                     <div class="col-md-6">
@@ -48,8 +39,8 @@
                                     </div>
                                 </div>
                                 <div class="d-flex justify-content-center">
-                                    <button type="submit" id="tenantRegister" class="btn bg-success w-50 bg-gradient text-white">
-                                        Register
+                                    <button type="submit" id="tenantLogin" class="btn bg-secondary w-50 bg-gradient text-white">
+                                        Login Here
                                     </button>
                                 </div>
                             </form>
@@ -63,32 +54,6 @@
     integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
     crossorigin="anonymous"></script>
         
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 </html>
-<script>
-    jQuery(document).ready(function(){
-        jQuery('#tenantRegister').click(function(e){
-               e.preventDefault();
-               jQuery.ajax({
-                  url: "/tenant/user/register",
-                  method: 'post',
-                  data: {
-                    name: jQuery('#name').val(),
-                    email: jQuery('#email').val(),
-                    password: jQuery('#password').val(),
-                    _token : "{{ csrf_token() }}"
-                  },
-                    success: function(result) {
-                        console.log(result);
-                        alert("Successfully Register");
-                        window.location.href = "/login";
-                    },
-                    error: function(error) {
-                        alert("Something is wrong");
-                    }
-                });
-            });
-    });
-    
- </script>

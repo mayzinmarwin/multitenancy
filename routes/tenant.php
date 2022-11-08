@@ -38,6 +38,11 @@ Route::middleware([
         // return view('tenanthome');
         return view('tenantregister');
     });
+    Route::get('/login', function () {
+        // return view('tenanthome');
+        return view('tenantlogin');
+    });
+    Route::post('tenant/user/login',[LoginTenantController::class,'tenantLogin'])->name('tenant.login');
     Route::post('tenant/user/register',[LoginTenantController::class,'tenantRegister'])->name('tenant.register');
 });
 // Route::post('tenant/register','App\Http\Controllers\RegisterTenantController@register');
