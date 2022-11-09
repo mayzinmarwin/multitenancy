@@ -58,6 +58,7 @@ return [
             'clientSecret' => env('MAIN_GOOGLE_DRIVE_CLIENT_SECRET'),
             'refreshToken' => env('MAIN_GOOGLE_DRIVE_REFRESH_TOKEN'),
             'folderId' => env('MAIN_GOOGLE_DRIVE_FOLDER_ID'),
+            'teamDriveId' => env('MAIN_GOOGLE_DRIVE_TEAM_DRIVE_ID'),
         ],
 
     ],
