@@ -12,6 +12,7 @@
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.4",
+        "nao-pon/flysystem-google-drive": "~1.1",
         "stancl/tenancy": "^3.6"
     },
     "require-dev": {

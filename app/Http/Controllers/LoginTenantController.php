@@ -25,8 +25,34 @@ class LoginTenantController extends Controller
             $user->save();
             //return $user;
     }
-    public function tenatnLogin(Request $request){
-        return $request;
+    public function tenantLogin(Request $request){
+        //return $request;
+        $email = $request->post('email');
+        $password = $request->post('password');
+        //return $name;
+        $user = User::where('email', $email)->firstOrFail();
+        //return $user;
+        if($user) {
+            $email = $user->email;
+            $name = $user->name;
+            $password = $user->password;
+        }
+        $view = view('tenantwelcome')->with('name', $name)
+                                    ->with('email', $email)
+                                    ->with('password',$password)->render();
+
+        return response()->json(['html'=>$view]);
+        //return $name;
+    }
+    public function tenanatUpdate(Request $request){
+        $name = $request->input('name');
+        $email = $request->input('email');
+        $password = $request->input('password');
+        $user = User::where('email', $email)->first();
+        $user->name = $name;
+        $user->email = $email;
+        $user->password =$password;
+        $user->save();    
     }
    
 }
